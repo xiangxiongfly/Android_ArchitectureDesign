@@ -36,6 +36,8 @@ public interface IPresenter<V extends IView> {
     V getView();
 }
 
+...
+
 public interface IView {
 
     /**
@@ -94,6 +96,8 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected abstract void initDatas();
 }
+
+...
 
 public abstract class BaseFragment extends Fragment {
 
@@ -175,6 +179,7 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseActivity
     }
 }
 
+...
 
 public abstract class BaseMvpFragment<P extends IPresenter> extends BaseFragment implements IView {
 
@@ -204,6 +209,8 @@ public abstract class BaseMvpFragment<P extends IPresenter> extends BaseFragment
         }
     }
 }
+
+...
 
 public class BasePresenter<V extends IView> implements IPresenter<V> {
     private WeakReference<V> mRef;
