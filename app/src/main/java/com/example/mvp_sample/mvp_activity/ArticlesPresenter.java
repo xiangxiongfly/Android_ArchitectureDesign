@@ -15,14 +15,14 @@ public class ArticlesPresenter extends BasePresenter<ArticlesMvpActivity> implem
         mArticlesModel.getArticles(new ArticlesContract.ArticesCallback() {
             @Override
             public void onSuccess(String success) {
-                if(isViewAttached()){
+                if (isViewAttached()) {
                     getView().articlesSuccess(success);
                 }
             }
 
             @Override
             public void onError(String error) {
-                if(isViewAttached()){
+                if (isViewAttached()) {
                     getView().articlesError(error);
                 }
             }
