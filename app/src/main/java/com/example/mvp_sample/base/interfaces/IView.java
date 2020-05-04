@@ -3,7 +3,7 @@ package com.example.mvp_sample.base.interfaces;
 public interface IView {
 
     /**
-     * 显示加载看
+     * 显示加载框
      */
     void showLoading();
 
