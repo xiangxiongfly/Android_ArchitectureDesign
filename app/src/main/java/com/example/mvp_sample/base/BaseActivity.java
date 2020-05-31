@@ -34,7 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getLayoutId();
 
     /**
-     * 初始化空间
+     * 初始化控件
      */
     protected abstract void initViews();
 
