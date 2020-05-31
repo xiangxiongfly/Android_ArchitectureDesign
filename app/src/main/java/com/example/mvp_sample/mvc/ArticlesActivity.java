@@ -61,5 +61,4 @@ public class ArticlesActivity extends BaseActivity {
     private void setArticlesContent(final String content) {
         runOnUiThread(() -> tv_articles.setText(content));
     }
-
 }
