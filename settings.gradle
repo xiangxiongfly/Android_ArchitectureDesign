@@ -1,2 +1,4 @@
-rootProject.name='MVP_Sample'
-include ':app'
+rootProject.name = "Android_ArchitectureDesign"
+include ':mvc'
+include ':mvp'
+include ':mvp_rxjava_retrofit'
