@@ -9,8 +9,10 @@ import java.net.ConnectException
 import java.net.SocketTimeoutException
 import javax.net.ssl.SSLHandshakeException
 
+/**
+ * 网络请求错误处理
+ */
 object ExceptionHandler {
-
     fun handleException(e: Throwable): ApiException {
         if (e is ServerException) {
             return ApiException(e, e.code, e.msg)

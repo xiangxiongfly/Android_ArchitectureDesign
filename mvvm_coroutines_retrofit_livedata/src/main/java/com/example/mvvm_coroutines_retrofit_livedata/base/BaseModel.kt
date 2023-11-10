@@ -5,6 +5,9 @@ import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.BaseResponse
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ExceptionHandler
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ServerException
 
+/**
+ * 封装Model
+ */
 open class BaseModel {
 
     suspend fun <T> requestForResult(block: suspend () -> BaseResponse<T>): ResultState {

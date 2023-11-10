@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
+/**
+ * 封装Activity
+ */
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     private lateinit var _mViewBinding: VB
     protected val mViewBinding get() = _mViewBinding

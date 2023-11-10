@@ -1,5 +1,8 @@
 package com.example.mvvm_coroutines_retrofit_livedata.entity
 
+/**
+ * 状态类
+ */
 sealed class ResultState {
     // 成功状态
     data class Success<out T>(val data: T) : ResultState()

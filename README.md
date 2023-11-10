@@ -39,5 +39,26 @@ MVC 是 Android 默认的设计，主要将代码分为三个部分：
 
 ## MVVM 架构
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210518115543344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE0ODc2MTMz,size_16,color_FFFFFF,t_70)
+
+| 角色                  | 说明                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| Model（模型）         | 负责获取数据和处理数据                                       |
+| View（视图）          | 负责界面展示和用户交互，即Activity/Fragment                  |
+| ViewModel（视图模型） | ViewModel是Model和View之间的桥梁，负责业务逻辑处理、数据驱动，通常由ViewModel+LiveData。从Model获取数据更新View，处理View的交互，ViewModel不会引用View |
+
+**代码结构：**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/f80736896dc24456accb31fdf5212408.png)
+
+
+
+### Jetpack MVVM
+
+**Jetpack MVVM** 是 MVVM 模式在 Android 开发中的一个具体实现，是 Android 官方提供并推荐的 MVVM实现方式。 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021032723012254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE0ODc2MTMz,size_16,color_FFFFFF,t_70)
+
+**代码结构：**
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/f108c9f7a8ef46e8b8dc1ebcb8968a81.png)
 
 

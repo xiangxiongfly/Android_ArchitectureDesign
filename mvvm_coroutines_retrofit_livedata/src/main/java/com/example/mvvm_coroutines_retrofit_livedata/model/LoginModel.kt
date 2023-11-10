@@ -5,6 +5,9 @@ import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.User
 import com.example.mvvm_coroutines_retrofit_livedata.http.HttpManager
 
+/**
+ * Model层
+ */
 class LoginModel : BaseModel() {
 
     private val loginApi: LoginApi by lazy {

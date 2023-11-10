@@ -6,6 +6,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+/**
+ * 封装ViewModel
+ */
 open class BaseViewModel : ViewModel() {
 
     fun launchWithMain(block: suspend CoroutineScope.() -> Unit) {

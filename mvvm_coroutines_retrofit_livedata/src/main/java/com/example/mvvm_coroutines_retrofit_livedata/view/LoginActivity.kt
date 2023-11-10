@@ -9,6 +9,9 @@ import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.utils.toast
 import com.example.mvvm_coroutines_retrofit_livedata.viewmodel.LoginViewModel
 
+/**
+ * View层
+ */
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private val viewModel: LoginViewModel by viewModels()
 
