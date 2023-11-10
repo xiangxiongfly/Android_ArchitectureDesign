@@ -1,7 +1,10 @@
 package com.example.mvvm_flow.network.exceptions
 
+/**
+ * 统一管理异常类
+ */
 class ApiException(throwable: Throwable, val code: Int, val displayMessage: String) :
-    Exception(throwable){
+    Exception(throwable) {
 
     /**
      * Http状态码
@@ -46,4 +49,4 @@ class ApiException(throwable: Throwable, val code: Int, val displayMessage: Stri
          */
         const val SSL_ERROR = 1005
     }
-    }
+}

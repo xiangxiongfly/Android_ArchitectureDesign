@@ -10,7 +10,7 @@ import java.net.SocketTimeoutException
 import javax.net.ssl.SSLHandshakeException
 
 /**
- * 网络请求错误处理
+ * 异常处理类
  */
 object ExceptionHandler {
     fun handleException(e: Throwable): ApiException {
