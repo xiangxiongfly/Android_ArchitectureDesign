@@ -2,3 +2,5 @@ rootProject.name = "Android_ArchitectureDesign"
 include ':mvc'
 include ':mvp'
 include ':mvp_rxjava_retrofit'
+include ':mvvm'
+include ':mvvm_coroutines_retrofit_livedata'
