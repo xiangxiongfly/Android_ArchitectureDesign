@@ -55,10 +55,13 @@ MVC 是 Android 默认的设计，主要将代码分为三个部分：
 
 ### Jetpack MVVM
 
-**Jetpack MVVM** 是 MVVM 模式在 Android 开发中的一个具体实现，是 Android 官方提供并推荐的 MVVM实现方式。 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2021032723012254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE0ODc2MTMz,size_16,color_FFFFFF,t_70)
+**Jetpack MVVM**是 MVVM 模式在 Android 开发中的一个具体实现，是 Android 官方提供并推荐的 MVVM实现方式。
+ 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2021032723012254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE0ODc2MTMz,size_16,color_FFFFFF,t_70)
 
 **代码结构：**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/f108c9f7a8ef46e8b8dc1ebcb8968a81.png)
 
 
+### MVVM+coroutines+flow+retrofit

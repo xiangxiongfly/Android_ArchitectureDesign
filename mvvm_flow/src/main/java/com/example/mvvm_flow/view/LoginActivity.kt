@@ -1,13 +1,18 @@
-package com.example.mvvm_coroutines_retrofit_livedata.view
+package com.example.mvvm_flow.view
 
 import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.mvvm_coroutines_retrofit_livedata.base.BaseActivity
-import com.example.mvvm_coroutines_retrofit_livedata.databinding.ActivityLoginBinding
-import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_livedata.utils.toast
-import com.example.mvvm_coroutines_retrofit_livedata.viewmodel.LoginViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.example.mvvm_flow.base.BaseActivity
+import com.example.mvvm_flow.databinding.ActivityLoginBinding
+import com.example.mvvm_flow.entity.ResultState
+import com.example.mvvm_flow.entity.bean.User
+import com.example.mvvm_flow.utils.showToast
+import com.example.mvvm_flow.viewmodel.LoginViewModel
+import kotlinx.coroutines.launch
 
 /**
  * View层
@@ -29,11 +34,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             val username = mViewBinding.etUsername.text.toString()
             val password = mViewBinding.etPassword.text.toString()
             if (username.isNullOrEmpty()) {
-                toast("请输入用户名")
+                showToast("请输入用户名")
                 return@setOnClickListener
             }
             if (password.isNullOrEmpty()) {
-                toast("请输入密码")
+                showToast("请输入密码")
                 return@setOnClickListener
             }
 
@@ -46,18 +51,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     private fun observe() {
-        viewModel.loginLiveData.observe(this) {
-            when (it) {
-                is ResultState.Loading -> {
-                    showLoadingDialog()
-                }
-                is ResultState.Error -> {
-                    hideLoadingDialog()
-                    mViewBinding.tvDesc.text = it.message
-                }
-                is ResultState.Success<*> -> {
-                    hideLoadingDialog()
-                    mViewBinding.tvDesc.text = it.data.toString()
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.userFlow.collect {
+                    when (it) {
+                        is ResultState.Loading -> showLoadingDialog()
+                        is ResultState.Success<User> -> {
+                            mViewBinding.tvDesc.text = it.toString()
+                        }
+                        is ResultState.Error -> mViewBinding.tvDesc.text = it.message
+                        is ResultState.Complete -> hideLoadingDialog()
+                        else -> {
+                        }
+                    }
                 }
             }
         }
