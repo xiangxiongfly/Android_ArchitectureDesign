@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean
+package com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean
 
 data class BaseResponse<T>(
     val errorCode: Int = 0,

@@ -1,9 +1,9 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.base
 
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean.BaseResponse
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ServerException
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.ResultState
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.BaseResponse
 import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ExceptionHandler
+import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ServerException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 
@@ -29,9 +29,6 @@ open class BaseModel {
             .catch {
                 val e = ExceptionHandler.handleException(it)
                 emit(ResultState.Error(e, e.displayMessage))
-            }
-            .onCompletion {
-                emit(ResultState.Complete)
             }
     }
 }

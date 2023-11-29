@@ -1,20 +1,17 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.model
 
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.HttpManager
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.LoginApi
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseModel
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean.User
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.User
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.repository.LoginApi
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 /**
  * Model层
  */
-class LoginModel : BaseModel() {
-
-    private val loginApi: LoginApi by lazy {
-        HttpManager.create(LoginApi::class.java)
-    }
+class LoginModel @Inject constructor() : BaseModel() {
+    @Inject
+    lateinit var loginApi: LoginApi
 
     suspend fun login(username: String, password: String): Flow<ResultState<User>> {
         return requestForResult {

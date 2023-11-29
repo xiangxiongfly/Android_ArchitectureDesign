@@ -1,7 +1,7 @@
-package com.example.mvvm_coroutines_retrofit_flow_hilt.network
+package com.example.mvvm_coroutines_retrofit_flow_hilt.model.repository
 
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean.BaseResponse
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean.User
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.BaseResponse
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.User
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_flow_hilt.view
+package com.example.mvvm_coroutines_retrofit_flow_hilt.ui
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -8,15 +8,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.mvvm_coroutines_retrofit_flow.databinding.ActivityLoginBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseActivity
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_flow_hilt.entity.bean.User
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.ResultState
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.User
 import com.example.mvvm_coroutines_retrofit_flow_hilt.utils.showToast
 import com.example.mvvm_coroutines_retrofit_flow_hilt.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 /**
  * View层
  */
+@AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private val viewModel: LoginViewModel by viewModels()
 
@@ -58,10 +60,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                         is ResultState.Loading -> showLoadingDialog()
                         is ResultState.Success<User> -> {
                             mViewBinding.tvDesc.text = it.toString()
+                            hideLoadingDialog()
                         }
-                        is ResultState.Error -> mViewBinding.tvDesc.text = it.message
-                        is ResultState.Complete -> hideLoadingDialog()
-                        else -> {
+                        is ResultState.Error -> {
+                            mViewBinding.tvDesc.text = it.message
+                            hideLoadingDialog()
                         }
                     }
                 }

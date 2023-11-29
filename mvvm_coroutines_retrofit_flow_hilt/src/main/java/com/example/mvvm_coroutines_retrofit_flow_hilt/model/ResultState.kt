@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_flow_hilt.entity
+package com.example.mvvm_coroutines_retrofit_flow_hilt.model
 
 import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ApiException
 

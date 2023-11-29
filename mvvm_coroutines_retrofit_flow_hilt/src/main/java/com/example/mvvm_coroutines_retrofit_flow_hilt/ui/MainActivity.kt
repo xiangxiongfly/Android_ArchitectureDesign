@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_flow_hilt.view
+package com.example.mvvm_coroutines_retrofit_flow_hilt.ui
 
 import android.content.Intent
 import android.os.Bundle
