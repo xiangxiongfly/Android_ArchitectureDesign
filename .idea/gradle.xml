@@ -14,9 +14,9 @@
             <option value="$PROJECT_DIR$/mvp" />
             <option value="$PROJECT_DIR$/mvp_rxjava_retrofit" />
             <option value="$PROJECT_DIR$/mvvm" />
+            <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_flow" />
+            <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_flow_hilt" />
             <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_livedata" />
-            <option value="$PROJECT_DIR$/mvvm_flow" />
-            <option value="$PROJECT_DIR$/mvvm_retrofit_coroutines_flow" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

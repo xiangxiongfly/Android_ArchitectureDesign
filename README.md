@@ -64,7 +64,7 @@ MVC 是 Android 默认的设计，主要将代码分为三个部分：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/f108c9f7a8ef46e8b8dc1ebcb8968a81.png)
 
 
-### MVVM+coroutines+flow+retrofit
+### MVVM+coroutines+retrofit+flow
 
 **代码结构：**
 
