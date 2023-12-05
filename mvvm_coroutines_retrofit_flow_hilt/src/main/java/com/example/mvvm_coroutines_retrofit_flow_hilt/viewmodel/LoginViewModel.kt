@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 /**
@@ -21,9 +22,13 @@ class LoginViewModel @Inject constructor(private val loginModel: LoginModel) : B
 
     fun login(username: String, password: String) {
         launchIO {
-            loginModel.login(username, password).collect {
-                _userFlow.value = it
-            }
+            loginModel.login(username, password)
+                .onStart {
+                    _userFlow.value = ResultState.Loading
+                }
+                .collect {
+                    _userFlow.value = it
+                }
         }
     }
 }

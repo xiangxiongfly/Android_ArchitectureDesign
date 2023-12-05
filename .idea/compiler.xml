@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
-      <module name="Android_ArchitectureDesign.mvc" target="11" />
-      <module name="Android_ArchitectureDesign.mvp" target="11" />
-      <module name="Android_ArchitectureDesign.mvp_rxjava_retrofit" target="11" />
-      <module name="Android_ArchitectureDesign.mvvm" target="11" />
-      <module name="Android_ArchitectureDesign.mvvm_coroutines_retrofit_flow" target="11" />
-      <module name="Android_ArchitectureDesign.mvvm_coroutines_retrofit_flow_hilt" target="11" />
-      <module name="Android_ArchitectureDesign.mvvm_coroutines_retrofit_livedata" target="11" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

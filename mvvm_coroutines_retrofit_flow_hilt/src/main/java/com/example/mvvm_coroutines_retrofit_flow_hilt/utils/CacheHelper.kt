@@ -4,6 +4,7 @@ import com.example.mvvm_coroutines_retrofit_flow_hilt.model.db.AppDatabase
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.db.CacheDao
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.entity.CacheEntity
 import com.hjq.gson.factory.GsonFactory
+import java.lang.reflect.Type
 import javax.inject.Inject
 
 class CacheHelper @Inject constructor() {
@@ -32,6 +33,14 @@ class CacheHelper @Inject constructor() {
                 )
             }
         }
+    }
+
+    fun <T> getCache(name: String, typeOf: Type): T? {
+        val json = getCache(name)
+        if (json != null) {
+            return GsonFactory.getSingletonGson().fromJson(json, typeOf)
+        }
+        return null
     }
 
     fun getCache(name: String): String? {

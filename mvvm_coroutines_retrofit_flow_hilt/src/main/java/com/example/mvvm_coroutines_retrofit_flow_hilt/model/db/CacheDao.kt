@@ -6,7 +6,7 @@ import com.example.mvvm_coroutines_retrofit_flow_hilt.model.entity.CacheEntity
 @Dao
 interface CacheDao {
 
-    @Query("select id from CacheEntity where name=:name limit 1")
+    @Query("select id from CacheEntity where name = :name limit 1")
     fun getCacheId(name: String): Long?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

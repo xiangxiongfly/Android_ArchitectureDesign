@@ -6,7 +6,10 @@ import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.Excepti
 import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ServerException
 import com.example.mvvm_coroutines_retrofit_flow_hilt.utils.CacheHelper
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 /**
@@ -28,9 +31,6 @@ open class BaseModel {
                 emit(ResultState.Error(e, e.displayMessage))
             }
         }.flowOn(Dispatchers.IO)
-            .onStart {
-                emit(ResultState.Loading)
-            }
             .catch {
                 val e = ExceptionHandler.handleException(it)
                 emit(ResultState.Error(e, e.displayMessage))
@@ -58,9 +58,6 @@ open class BaseModel {
                 emit(ResultState.Error(e, e.displayMessage))
             }
         }.flowOn(Dispatchers.IO)
-            .onStart {
-                emit(ResultState.Loading)
-            }
             .catch {
                 val e = ExceptionHandler.handleException(it)
                 emit(ResultState.Error(e, e.displayMessage))
