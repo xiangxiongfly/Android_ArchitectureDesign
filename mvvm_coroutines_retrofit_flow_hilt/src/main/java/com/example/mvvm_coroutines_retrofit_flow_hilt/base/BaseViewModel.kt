@@ -11,19 +11,19 @@ import kotlinx.coroutines.launch
  */
 open class BaseViewModel : ViewModel() {
 
-    fun launchWithMain(block: suspend CoroutineScope.() -> Unit) {
+    fun launchMain(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(Dispatchers.Main) {
             block()
         }
     }
 
-    fun launchWithIO(block: suspend CoroutineScope.() -> Unit) {
+    fun launchIO(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             block()
         }
     }
 
-    fun launchWithDefault(block: suspend CoroutineScope.() -> Unit) {
+    fun launchDefault(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(Dispatchers.Default) {
             block()
         }

@@ -45,6 +45,11 @@ class ApiException(throwable: Throwable, val code: Int, val displayMessage: Stri
         const val HTTP_ERROR = 1003
 
         /**
+         * 连接超时
+         */
+        const val CONNECT_TIMEOUT = 1004
+
+        /**
          * 证书出错
          */
         const val SSL_ERROR = 1005

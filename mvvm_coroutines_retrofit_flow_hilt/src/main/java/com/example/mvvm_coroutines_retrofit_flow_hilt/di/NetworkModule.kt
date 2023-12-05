@@ -1,15 +1,14 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.di
 
 import com.example.mvvm_coroutines_retrofit_flow_hilt.network.HttpManager
-import com.example.mvvm_coroutines_retrofit_flow_hilt.model.repository.LoginApi
+import com.example.mvvm_coroutines_retrofit_flow_hilt.network.webservice.ArticleApi
+import com.example.mvvm_coroutines_retrofit_flow_hilt.network.webservice.LoginApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -19,24 +18,24 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-            .build()
+        return HttpManager.okHttpClient
     }
 
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(HttpManager.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
-            .build()
+        return HttpManager.retrofit
     }
 
     @Singleton
     @Provides
     fun provideLoginApi(retrofit: Retrofit): LoginApi {
         return retrofit.create(LoginApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideArticleApi(retrofit: Retrofit): ArticleApi {
+        return retrofit.create(ArticleApi::class.java)
     }
 }

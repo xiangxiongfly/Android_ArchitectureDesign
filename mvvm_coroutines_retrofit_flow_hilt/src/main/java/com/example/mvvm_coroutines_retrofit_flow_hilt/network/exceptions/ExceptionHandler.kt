@@ -2,30 +2,32 @@ package com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions
 
 import android.net.ParseException
 import com.google.gson.JsonParseException
-import org.apache.http.conn.ConnectTimeoutException
 import org.json.JSONException
 import retrofit2.HttpException
+import java.io.InterruptedIOException
 import java.net.ConnectException
-import java.net.SocketTimeoutException
-import javax.net.ssl.SSLHandshakeException
+import java.net.UnknownHostException
+import javax.net.ssl.SSLException
 
 /**
  * 异常处理类
  */
 object ExceptionHandler {
     fun handleException(e: Throwable): ApiException {
-        if (e is ServerException) {
-            return ApiException(e, e.code, e.msg)
+        return if (e is ServerException) {
+            ApiException(e, e.code, e.msg)
         } else if (e is HttpException) {
-            return ApiException(e, ApiException.Error.HTTP_ERROR, "服务器连接失败")
-        } else if (e is JsonParseException || e is JSONException || e is ParseException) {
-            return ApiException(e, ApiException.Error.PARSE_ERROR, "解析错误")
-        } else if (e is ConnectException || e is ConnectTimeoutException || e is SocketTimeoutException) {
-            return ApiException(e, ApiException.Error.NETWORD_ERROR, "网络连接失败,请稍后重试")
-        } else if (e is SSLHandshakeException) {
-            return ApiException(e, ApiException.Error.SSL_ERROR, "证书验证失败")
+            ApiException(e, ApiException.Error.HTTP_ERROR, "HTTP错误")
+        } else if (e is JSONException || e is ParseException || e is JsonParseException) {
+            ApiException(e, ApiException.Error.PARSE_ERROR, "解析错误")
+        } else if (e is ConnectException || e is UnknownHostException) {
+            ApiException(e, ApiException.Error.NETWORD_ERROR, "网络连接失败,请稍后重试")
+        } else if (e is InterruptedIOException) {
+            ApiException(e, ApiException.Error.CONNECT_TIMEOUT, "连接超时")
+        } else if (e is SSLException) {
+            ApiException(e, ApiException.Error.SSL_ERROR, "证书验证失败")
         } else {
-            return ApiException(e, ApiException.Error.UNKNOWN, "网络连接异常,请稍后重试")
+            ApiException(e, ApiException.Error.UNKNOWN, "网络连接异常,请稍后重试")
         }
     }
 }

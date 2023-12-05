@@ -21,4 +21,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     fun toLoginActivity(view: View) {
         startActivity(Intent(this, LoginActivity::class.java))
     }
+
+    fun toArticleListActivity(view: View) {
+        startActivity(Intent(this, ArticleListActivity::class.java))
+    }
 }

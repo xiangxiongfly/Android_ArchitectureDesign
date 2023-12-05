@@ -7,7 +7,7 @@ import com.example.mvvm_coroutines_retrofit_flow_hilt.network.exceptions.ApiExce
  */
 sealed class ResultState<out R> {
     // 成功状态
-    data class Success<out T>(val data: T) : ResultState<T>()
+    data class Success<out T>(val data: T, val isCache: Boolean = false) : ResultState<T>()
 
     // 失败状态
     data class Error(val exception: ApiException, val message: String) : ResultState<Nothing>()

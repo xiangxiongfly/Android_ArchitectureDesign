@@ -1,6 +1,6 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean
 
-data class User(
+data class UserBean(
     var admin: Boolean = false,
     val id: Int = 0,
     val nickname: String? = null,

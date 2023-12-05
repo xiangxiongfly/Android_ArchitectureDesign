@@ -9,7 +9,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.mvvm_coroutines_retrofit_flow.databinding.ActivityLoginBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseActivity
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.ResultState
-import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.User
+import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.UserBean
 import com.example.mvvm_coroutines_retrofit_flow_hilt.utils.showToast
 import com.example.mvvm_coroutines_retrofit_flow_hilt.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,7 +58,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 viewModel.userFlow.collect {
                     when (it) {
                         is ResultState.Loading -> showLoadingDialog()
-                        is ResultState.Success<User> -> {
+                        is ResultState.Success<UserBean> -> {
                             mViewBinding.tvDesc.text = it.toString()
                             hideLoadingDialog()
                         }
