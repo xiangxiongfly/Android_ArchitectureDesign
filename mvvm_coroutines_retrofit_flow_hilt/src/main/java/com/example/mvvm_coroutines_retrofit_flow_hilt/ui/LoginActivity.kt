@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.mvvm_coroutines_retrofit_flow.databinding.ActivityLoginBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseActivity
+import com.example.mvvm_coroutines_retrofit_flow_hilt.databinding.ActivityLoginBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.ResultState
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.UserBean
 import com.example.mvvm_coroutines_retrofit_flow_hilt.utils.showToast
@@ -66,6 +66,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                             mViewBinding.tvDesc.text = it.message
                             hideLoadingDialog()
                         }
+                        else -> {}
                     }
                 }
             }

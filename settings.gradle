@@ -8,17 +8,18 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
     }
 }
 
 rootProject.name = "Android_ArchitectureDesign"
-include ':mvc'
-//include ':mvp'
-//include ':mvp_rxjava_retrofit'
-//include ':mvvm'
-//include ':mvvm_coroutines_retrofit_livedata'
-//include ':mvvm_coroutines_retrofit_flow'
-//include ':mvvm_coroutines_retrofit_flow_hilt'
 include ':common'
+include ':mvc'
+include ':mvp'
+include ':mvp_rxjava_retrofit'
+include ':mvvm'
+include ':mvvm_coroutines_retrofit_livedata'
+include ':mvvm_coroutines_retrofit_flow'
+include ':mvvm_coroutines_retrofit_flow_hilt'

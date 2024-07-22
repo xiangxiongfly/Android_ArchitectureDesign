@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.mvvm_coroutines_retrofit_flow.databinding.ActivityArticleListBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseActivity
+import com.example.mvvm_coroutines_retrofit_flow_hilt.databinding.ActivityArticleListBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.ResultState
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.ArticleBean
 import com.example.mvvm_coroutines_retrofit_flow_hilt.ui.adapter.ArticleAdapter
@@ -61,6 +61,7 @@ class ArticleListActivity : BaseActivity<ActivityArticleListBinding>() {
                             hideLoading()
                             updateUI(it.data)
                         }
+                        else -> {}
                     }
                 }
             }

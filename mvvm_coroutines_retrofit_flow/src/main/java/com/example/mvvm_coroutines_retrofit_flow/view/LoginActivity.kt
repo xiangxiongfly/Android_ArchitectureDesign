@@ -64,6 +64,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                             mViewBinding.tvDesc.text = it.message
                             hideLoadingDialog()
                         }
+                        else -> {}
                     }
                 }
             }

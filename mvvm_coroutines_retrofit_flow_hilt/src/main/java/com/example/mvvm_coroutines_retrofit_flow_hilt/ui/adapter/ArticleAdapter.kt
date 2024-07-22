@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mvvm_coroutines_retrofit_flow.databinding.ItemLayoutBinding
+import com.example.mvvm_coroutines_retrofit_flow_hilt.databinding.ItemLayoutBinding
 import com.example.mvvm_coroutines_retrofit_flow_hilt.model.bean.ArticleBean
 
 class ArticleAdapter(private val mContext: Context, private val mList: List<ArticleBean>) :
