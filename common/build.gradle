@@ -1,20 +1,20 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.example.mvc'
+    namespace 'com.example.common'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.mvc"
         minSdk 22
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -30,5 +30,13 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':common')
+    api 'androidx.appcompat:appcompat:1.6.1'
+    api 'com.google.android.material:material:1.6.0'
+    api 'com.squareup.okhttp3:okhttp:4.9.3'
+    api 'com.google.code.gson:gson:2.10.1'
+    api 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    testApi 'junit:junit:'
+    androidTestApi 'androidx.test.ext:junit:1.1.5'
+    androidTestApi 'androidx.test.espresso:espresso-core:3.5.1'
 }

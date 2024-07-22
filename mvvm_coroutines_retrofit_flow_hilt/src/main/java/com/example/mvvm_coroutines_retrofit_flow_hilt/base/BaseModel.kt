@@ -39,21 +39,25 @@ open class BaseModel {
 
     suspend fun <T> requestForResult(
         cacheName: String,
-        cacheBlock: () -> T?,
-        block: suspend () -> BaseResponse<T>
+        loadFromCache: () -> T?,
+        loadFromNetwork: suspend () -> BaseResponse<T>
     ): Flow<ResultState<T>> {
         return flow {
-            val cacheData = cacheBlock()
+            // 从缓存获取数据
+            val cacheData = loadFromCache()
             cacheData?.let {
                 emit(ResultState.Success(cacheData, true))
             }
 
-            val response = block()
-            if (response.isSuccessful()) {
-                cacheHelper.saveCache(cacheName, response.data!!)
-                emit(ResultState.Success(response.data, false))
+            // 网络请求数据
+            val networkData = loadFromNetwork()
+            if (networkData.isSuccessful()) {
+                networkData.data?.let {
+                    emit(ResultState.Success(it, false))
+                    saveToCache(cacheName, it)
+                }
             } else {
-                val serverException = ServerException(response.errorCode, response.errorMsg)
+                val serverException = ServerException(networkData.errorCode, networkData.errorMsg)
                 val e = ExceptionHandler.handleException(serverException)
                 emit(ResultState.Error(e, e.displayMessage))
             }
@@ -62,6 +66,13 @@ open class BaseModel {
                 val e = ExceptionHandler.handleException(it)
                 emit(ResultState.Error(e, e.displayMessage))
             }
+    }
+
+    /**
+     * 更新缓存
+     */
+    private suspend fun <T> saveToCache(cacheName: String, data: T) {
+        cacheHelper.saveCache(cacheName, data as Any)
     }
 
 }

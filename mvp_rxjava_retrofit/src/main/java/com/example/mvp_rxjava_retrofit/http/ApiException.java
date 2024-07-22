@@ -3,35 +3,39 @@ package com.example.mvp_rxjava_retrofit.http;
 /**
  * 自定义异常
  */
-public class ApiException extends Exception {
+public class ApiException {
+    private Throwable e;
     private int code;
-    private String displayMessage;
+    private String message;
+    private int statusCode;
 
-    public ApiException(Throwable throwable, int code) {
-        super(throwable);
+    public ApiException(Throwable e, int code, String message) {
+        this.e = e;
         this.code = code;
+        this.message = message;
     }
 
-    public String getDisplayMessage() {
-        return displayMessage;
+    public ApiException(Throwable e, int code, String message, int statusCode) {
+        this.e = e;
+        this.code = code;
+        this.message = message;
+        this.statusCode = statusCode;
     }
 
-    public void setDisplayMessage(String displayMessage) {
-        this.displayMessage = displayMessage;
+    public Throwable getThrowable() {
+        return e;
     }
 
-    /**
-     * Http状态码
-     */
-    public static final class Http {
-        public static final int UNAUTHORIZED = 401;
-        public static final int FORBIDDEN = 403;
-        public static final int NOT_FOUND = 404;
-        public static final int REQUEST_TIMEOUT = 408;
-        public static final int INTERNAL_SERVER_ERROR = 500;
-        public static final int BAD_GATEWAY = 502;
-        public static final int SERVICE_UNAVAILABLE = 503;
-        public static final int GATEWAY_TIMEOUT = 504;
+    public int getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
     }
 
     /**
@@ -54,10 +58,21 @@ public class ApiException extends Exception {
          * 协议出错
          */
         public static final int HTTP_ERROR = 1003;
-
         /**
          * 证书出错
          */
         public static final int SSL_ERROR = 1005;
+        /**
+         * 无网络异常
+         */
+        public static final int NOT_NETWORK_ERROR = 1006;
+        /**
+         * 连接超时异常
+         */
+        public static final int CONNECT_TIMEOUT_ERROR = 1007;
+        /**
+         * Http状态码异常
+         */
+        public static final int HTTP_STATUS_ERROR = 1008;
     }
 }

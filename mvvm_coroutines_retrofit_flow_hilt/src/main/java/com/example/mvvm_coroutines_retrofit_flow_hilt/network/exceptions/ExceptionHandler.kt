@@ -20,7 +20,9 @@ object ExceptionHandler {
             ApiException(e, ApiException.Error.HTTP_ERROR, "HTTP错误")
         } else if (e is JSONException || e is ParseException || e is JsonParseException) {
             ApiException(e, ApiException.Error.PARSE_ERROR, "解析错误")
-        } else if (e is ConnectException || e is UnknownHostException) {
+        } else if (e is ConnectException) {
+            ApiException(e, ApiException.Error.NETWORD_ERROR, "网络连接失败,请稍后重试")
+        } else if (e is UnknownHostException) {
             ApiException(e, ApiException.Error.NETWORD_ERROR, "网络连接失败,请稍后重试")
         } else if (e is InterruptedIOException) {
             ApiException(e, ApiException.Error.CONNECT_TIMEOUT, "连接超时")

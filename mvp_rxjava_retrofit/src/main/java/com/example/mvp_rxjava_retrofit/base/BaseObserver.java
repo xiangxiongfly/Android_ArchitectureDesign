@@ -15,6 +15,7 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
     @Override
     protected void onStart() {
         super.onStart();
+        onBegin();
     }
 
     @Override
@@ -35,10 +36,16 @@ public abstract class BaseObserver<T> extends DisposableObserver<BaseResponse<T>
 
     @Override
     public void onComplete() {
+        onEnd();
+    }
+
+    protected void onBegin() {
     }
 
     protected abstract void onSuccess(T data);
 
     protected abstract void onError(ApiException e);
 
+    protected void onEnd() {
+    }
 }
