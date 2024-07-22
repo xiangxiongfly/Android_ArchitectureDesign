@@ -57,17 +57,17 @@ public class LoginActivity extends AppCompatActivity implements Observer<ResultS
     @Override
     public void onChanged(ResultState<User> resultState) {
         switch (resultState.getState()) {
-            case ResultState.STATE_LOADING:
+            case ResultState.LOADING:
                 showLoading();
                 break;
-            case ResultState.STATE_ERROR:
+            case ResultState.ERROR:
                 viewBinding.tvDesc.setText(resultState.getErrMsg());
                 hideLoading();
                 break;
-            case ResultState.STATE_SUCCESS:
+            case ResultState.SUCCESS:
+                hideLoading();
                 User user = resultState.getData();
                 viewBinding.tvDesc.setText(user.toString());
-                hideLoading();
                 break;
         }
     }

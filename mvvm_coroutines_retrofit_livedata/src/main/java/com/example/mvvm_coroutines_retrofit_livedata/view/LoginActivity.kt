@@ -6,9 +6,8 @@ import androidx.activity.viewModels
 import com.example.mvvm_coroutines_retrofit_livedata.base.BaseActivity
 import com.example.mvvm_coroutines_retrofit_livedata.databinding.ActivityLoginBinding
 import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_livedata.utils.toast
+import com.example.mvvm_coroutines_retrofit_livedata.utils.showToast
 import com.example.mvvm_coroutines_retrofit_livedata.viewmodel.LoginViewModel
-import kotlinx.coroutines.*
 
 /**
  * View层
@@ -30,11 +29,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             val username = mViewBinding.etUsername.text.toString()
             val password = mViewBinding.etPassword.text.toString()
             if (username.isNullOrEmpty()) {
-                toast("请输入用户名")
+                showToast("请输入用户名")
                 return@setOnClickListener
             }
             if (password.isNullOrEmpty()) {
-                toast("请输入密码")
+                showToast("请输入密码")
                 return@setOnClickListener
             }
 

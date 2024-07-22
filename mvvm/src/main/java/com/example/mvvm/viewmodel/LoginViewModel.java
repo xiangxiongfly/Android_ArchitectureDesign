@@ -1,5 +1,6 @@
 package com.example.mvvm.viewmodel;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.mvvm.bean.User;
@@ -15,11 +16,22 @@ public class LoginViewModel {
         loginModel = new LoginModel();
     }
 
-    public MutableLiveData<ResultState<User>> getLoginLiveData() {
+    public LiveData<ResultState<User>> getLoginLiveData() {
         return loginLiveData;
     }
 
     public void login(String username, String password) {
-        loginModel.login(loginLiveData, username, password);
+        loginLiveData.postValue(new ResultState<>(ResultState.LOADING));
+        loginModel.login(username, password, new LoginModel.OnLoginCallback() {
+            @Override
+            public void onLoginSuccess(User user) {
+                loginLiveData.postValue(new ResultState<>(ResultState.SUCCESS, user));
+            }
+
+            @Override
+            public void onLoginError(int errCode, String errMsg) {
+                loginLiveData.postValue(new ResultState<>(ResultState.ERROR, errCode, errMsg));
+            }
+        });
     }
 }

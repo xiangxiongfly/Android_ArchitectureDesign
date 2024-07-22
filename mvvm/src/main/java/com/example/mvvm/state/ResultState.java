@@ -1,21 +1,23 @@
 package com.example.mvvm.state;
 
 public class ResultState<T> {
-    public static final int STATE_SUCCESS = 1;
-    public static final int STATE_ERROR = 2;
-    public static final int STATE_LOADING = 0;
-    public static final int STATE_COMPLETE = 3;
+    public static final int SUCCESS = 1;
+    public static final int ERROR = 2;
+    public static final int LOADING = 0;
+    public static final int COMPLETE = 3;
 
-    private int state = STATE_LOADING;
-    private String errMsg;
-    private T data;
+    private int state = LOADING; // 加载状态
+    private int errCode = -1; // 失败状态码
+    private String errMsg; // 失败消息
+    private T data; // 成功数据
 
     public ResultState(int state) {
         this.state = state;
     }
 
-    public ResultState(int state, String errMsg) {
+    public ResultState(int state, int errCode, String errMsg) {
         this.state = state;
+        this.errCode = errCode;
         this.errMsg = errMsg;
     }
 
@@ -46,5 +48,13 @@ public class ResultState<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public int getErrCode() {
+        return errCode;
+    }
+
+    public void setErrCode(int errCode) {
+        this.errCode = errCode;
     }
 }

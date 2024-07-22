@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata
+package com.example.mvvm_coroutines_retrofit_livedata.livedata
 
 import androidx.annotation.MainThread
 import androidx.annotation.Nullable
