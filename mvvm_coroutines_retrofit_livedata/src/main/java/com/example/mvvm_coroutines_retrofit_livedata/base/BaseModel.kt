@@ -1,6 +1,6 @@
 package com.example.mvvm_coroutines_retrofit_livedata.base
 
-import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
+import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.BaseResponse
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ExceptionHandler
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ServerException

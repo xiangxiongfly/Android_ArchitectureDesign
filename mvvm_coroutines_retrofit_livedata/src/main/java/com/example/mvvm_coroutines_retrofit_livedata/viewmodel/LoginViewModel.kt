@@ -1,7 +1,7 @@
 package com.example.mvvm_coroutines_retrofit_livedata.viewmodel
 
 import com.example.mvvm_coroutines_retrofit_livedata.base.BaseViewModel
-import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
+import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.livedata.SingleLiveData
 import com.example.mvvm_coroutines_retrofit_livedata.model.LoginModel
 

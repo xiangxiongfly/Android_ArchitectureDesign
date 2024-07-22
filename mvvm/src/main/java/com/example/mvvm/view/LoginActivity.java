@@ -1,5 +1,7 @@
 package com.example.mvvm.view;
 
+import static com.example.common.utils.UtilsKt.showToast;
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +14,6 @@ import androidx.lifecycle.Observer;
 import com.example.mvvm.bean.User;
 import com.example.mvvm.databinding.ActivityLoginBinding;
 import com.example.mvvm.state.ResultState;
-import com.example.mvvm.utils.Utils;
 import com.example.mvvm.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity implements Observer<ResultState<User>> {
@@ -37,11 +38,11 @@ public class LoginActivity extends AppCompatActivity implements Observer<ResultS
                 String username = viewBinding.etUsername.getText().toString();
                 String password = viewBinding.etPassword.getText().toString();
                 if (TextUtils.isEmpty(username)) {
-                    Utils.showToast("请输入用户名");
+                    showToast("请输入用户名");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    Utils.showToast("请输入密码");
+                    showToast("请输入密码");
                     return;
                 }
                 viewModel.login(username, password);

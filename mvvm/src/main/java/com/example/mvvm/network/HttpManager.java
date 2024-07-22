@@ -29,7 +29,7 @@ public class HttpManager {
         return client;
     }
 
-    public static <T> void post(String url, RequestParams requestParams, HttpCallback callback) {
+    public static <T> void post(String url, RequestParams requestParams, HttpCallback<T> callback) {
         FormBody.Builder builder = new FormBody.Builder();
         if (requestParams.size() > 0) {
             for (Map.Entry<String, String> entry : requestParams.getParams().entrySet()) {

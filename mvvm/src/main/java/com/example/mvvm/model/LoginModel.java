@@ -11,7 +11,7 @@ public class LoginModel {
         RequestParams requestParams = new RequestParams();
         requestParams.put("username", username)
                 .put("password", password);
-        HttpManager.<User>post(url, requestParams, new HttpCallback<User>() {
+        HttpManager.post(url, requestParams, new HttpCallback<User>() {
             @Override
             public void onError(int errCode, String errMsg) {
                 callback.onLoginError(errCode, errMsg);

@@ -1,8 +1,8 @@
 package com.example.mvvm_coroutines_retrofit_livedata.model
 
 import com.example.mvvm_coroutines_retrofit_livedata.base.BaseModel
-import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.User
+import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.http.HttpManager
 
 /**

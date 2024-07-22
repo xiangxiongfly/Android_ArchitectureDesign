@@ -3,10 +3,10 @@ package com.example.mvvm_coroutines_retrofit_livedata.view
 import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.example.common.utils.showToast
 import com.example.mvvm_coroutines_retrofit_livedata.base.BaseActivity
 import com.example.mvvm_coroutines_retrofit_livedata.databinding.ActivityLoginBinding
-import com.example.mvvm_coroutines_retrofit_livedata.entity.ResultState
-import com.example.mvvm_coroutines_retrofit_livedata.utils.showToast
+import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.viewmodel.LoginViewModel
 
 /**

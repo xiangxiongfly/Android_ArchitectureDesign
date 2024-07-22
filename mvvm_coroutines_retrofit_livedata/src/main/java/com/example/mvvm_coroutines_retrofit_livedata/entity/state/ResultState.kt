@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata.entity
+package com.example.mvvm_coroutines_retrofit_livedata.entity.state
 
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ApiException
 
