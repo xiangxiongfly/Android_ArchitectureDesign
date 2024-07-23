@@ -1,6 +1,6 @@
 package com.example.mvvm_coroutines_retrofit_livedata.entity.state
 
-import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ApiException
+import com.example.common.network.exceptions.ApiException
 
 /**
  * 状态类

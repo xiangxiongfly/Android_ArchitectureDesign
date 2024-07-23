@@ -1,8 +1,8 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.di
 
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.HttpManager
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.webservice.ArticleApi
-import com.example.mvvm_coroutines_retrofit_flow_hilt.network.webservice.LoginApi
+import com.example.common.network.HttpManager
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.api.ArticleApi
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.api.LoginApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class NetworkModule {
+object NetworkModule {
 
     @Singleton
     @Provides

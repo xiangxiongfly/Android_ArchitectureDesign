@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.mvvm_coroutines_retrofit_flow_hilt.ui.ArticleListActivity">
+    tools:context="com.example.mvvm_coroutines_retrofit_flow_hilt.ui.article_list.ArticleListActivity">
 
     <Button
         android:id="@+id/btn_get_article_list"

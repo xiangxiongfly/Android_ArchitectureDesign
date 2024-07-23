@@ -1,8 +1,8 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.di
 
-import android.app.Application
-import com.example.mvvm_coroutines_retrofit_flow_hilt.model.db.AppDatabase
-import com.example.mvvm_coroutines_retrofit_flow_hilt.model.db.CacheDao
+import com.example.mvvm_coroutines_retrofit_flow_hilt.base.HiltApplication
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.AppDatabase
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.CacheDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,11 +11,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DBModule {
+object DBModule {
 
     @Singleton
     @Provides
-    fun provideDB(application: Application): AppDatabase {
+    fun provideDB(application: HiltApplication): AppDatabase {
         return AppDatabase.getDatabase(application)
     }
 

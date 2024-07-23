@@ -14,9 +14,11 @@ class LoginViewModel : BaseViewModel() {
 
     fun login(username: String, password: String) {
         _loginLiveData.value = ResultState.Loading
-        launchWithIO {
+        launchIO {
             val loginModel = LoginModel()
-            val resultState = loginModel.login(username, password)
+            val resultState = apiCall {
+                loginModel.login(username, password)
+            }
             _loginLiveData.postValue(resultState)
         }
     }

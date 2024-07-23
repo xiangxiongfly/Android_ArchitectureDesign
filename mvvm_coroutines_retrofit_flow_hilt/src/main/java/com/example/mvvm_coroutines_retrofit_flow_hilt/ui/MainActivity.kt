@@ -3,8 +3,10 @@ package com.example.mvvm_coroutines_retrofit_flow_hilt.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.example.mvvm_coroutines_retrofit_flow_hilt.base.BaseActivity
+import com.example.common.base.BaseActivity
 import com.example.mvvm_coroutines_retrofit_flow_hilt.databinding.ActivityMainBinding
+import com.example.mvvm_coroutines_retrofit_flow_hilt.ui.article_list.ArticleListActivity
+import com.example.mvvm_coroutines_retrofit_flow_hilt.ui.login.LoginActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

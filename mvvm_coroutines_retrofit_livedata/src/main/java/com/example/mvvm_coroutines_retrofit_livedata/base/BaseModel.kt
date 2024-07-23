@@ -1,7 +1,7 @@
 package com.example.mvvm_coroutines_retrofit_livedata.base
 
-import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.BaseResponse
+import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ExceptionHandler
 import com.example.mvvm_coroutines_retrofit_livedata.http.exceptions.ServerException
 import kotlinx.coroutines.Dispatchers
@@ -21,11 +21,11 @@ open class BaseModel {
                 } else {
                     val serverException = ServerException(response.errorCode, response.errorMsg)
                     val e = ExceptionHandler.handleException(serverException)
-                    ResultState.Error(e, e.displayMessage)
+                    ResultState.Error(e, e.errMsg)
                 }
             } catch (e: Exception) {
                 val e = ExceptionHandler.handleException(e)
-                ResultState.Error(e, e.displayMessage)
+                ResultState.Error(e, e.errMsg)
             }
         }
     }

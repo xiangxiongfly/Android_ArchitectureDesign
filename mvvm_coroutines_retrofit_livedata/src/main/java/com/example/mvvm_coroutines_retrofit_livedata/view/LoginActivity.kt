@@ -28,11 +28,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         mViewBinding.btnLogin.setOnClickListener {
             val username = mViewBinding.etUsername.text.toString()
             val password = mViewBinding.etPassword.text.toString()
-            if (username.isNullOrEmpty()) {
+            if (username.isEmpty()) {
                 showToast("请输入用户名")
                 return@setOnClickListener
             }
-            if (password.isNullOrEmpty()) {
+            if (password.isEmpty()) {
                 showToast("请输入密码")
                 return@setOnClickListener
             }

@@ -2,15 +2,17 @@ package com.example.common.base
 
 import android.app.Application
 
-class BaseApplication : Application() {
+open class BaseApplication : Application() {
     companion object {
-        @JvmStatic
-        lateinit var instance: BaseApplication
+        private lateinit var instance: BaseApplication
+
+        fun getInstance(): BaseApplication {
+            return instance
+        }
     }
 
     override fun onCreate() {
         super.onCreate()
         instance = this
     }
-
 }

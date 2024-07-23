@@ -6,11 +6,11 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.example.common.utils.showToast
 import com.example.mvvm_coroutines_retrofit_flow.base.BaseActivity
 import com.example.mvvm_coroutines_retrofit_flow.databinding.ActivityLoginBinding
-import com.example.mvvm_coroutines_retrofit_flow.entity.ResultState
 import com.example.mvvm_coroutines_retrofit_flow.entity.bean.User
-import com.example.mvvm_coroutines_retrofit_flow.utils.showToast
+import com.example.mvvm_coroutines_retrofit_flow.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_flow.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
 

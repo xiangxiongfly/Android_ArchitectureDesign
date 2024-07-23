@@ -1,8 +1,8 @@
 package com.example.mvvm_coroutines_retrofit_flow.viewmodel
 
 import com.example.mvvm_coroutines_retrofit_flow.base.BaseViewModel
-import com.example.mvvm_coroutines_retrofit_flow.entity.ResultState
 import com.example.mvvm_coroutines_retrofit_flow.entity.bean.User
+import com.example.mvvm_coroutines_retrofit_flow.entity.state.ResultState
 import com.example.mvvm_coroutines_retrofit_flow.model.LoginModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,8 +20,8 @@ class LoginViewModel : BaseViewModel() {
     val userFlow: StateFlow<ResultState<User>> get() = _userFlow.asStateFlow()
 
     fun login(username: String, password: String) {
-        launchWithIO {
-            loginModel.login(username, password).collect {
+        launchMain {
+            apiCall { loginModel.login(username, password) }.collect {
                 _userFlow.value = it
             }
         }

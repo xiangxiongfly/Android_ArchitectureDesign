@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -27,6 +28,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -50,10 +57,15 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
 
+    // GSON
     api 'com.google.code.gson:gson:2.10.1'
     api 'com.github.getActivity:GsonFactory:9.3'
 
     testApi 'junit:junit:'
     androidTestApi 'androidx.test.ext:junit:1.1.5'
     androidTestApi 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+kapt {
+    correctErrorTypes true
 }

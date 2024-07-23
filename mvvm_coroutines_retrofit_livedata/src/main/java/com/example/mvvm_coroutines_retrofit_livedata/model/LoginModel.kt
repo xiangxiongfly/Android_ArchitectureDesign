@@ -1,9 +1,9 @@
 package com.example.mvvm_coroutines_retrofit_livedata.model
 
+import com.example.common.network.HttpManager
 import com.example.mvvm_coroutines_retrofit_livedata.base.BaseModel
+import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.BaseResponse
 import com.example.mvvm_coroutines_retrofit_livedata.entity.bean.User
-import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
-import com.example.mvvm_coroutines_retrofit_livedata.http.HttpManager
 
 /**
  * Model层
@@ -14,9 +14,7 @@ class LoginModel : BaseModel() {
         HttpManager.create(LoginApi::class.java)
     }
 
-    suspend fun login(username: String, password: String): ResultState {
-        return requestForResult<User> {
-            loginApi.login(username, password)
-        }
+    suspend fun login(username: String, password: String): BaseResponse<User> {
+        return loginApi.login(username, password)
     }
 }
