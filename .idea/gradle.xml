@@ -7,11 +7,18 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/mvc" />
+            <option value="$PROJECT_DIR$/mvp" />
+            <option value="$PROJECT_DIR$/mvp_rxjava_retrofit" />
+            <option value="$PROJECT_DIR$/mvvm" />
+            <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_flow" />
             <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_flow_hilt" />
+            <option value="$PROJECT_DIR$/mvvm_coroutines_retrofit_livedata" />
           </set>
         </option>
       </GradleProjectSettings>

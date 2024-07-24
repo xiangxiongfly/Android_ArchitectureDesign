@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * 封装ViewModel
@@ -37,7 +38,7 @@ open class BaseViewModel : ViewModel() {
         }
     }
 
-    fun <T> apiCall(block: suspend () -> BaseResponse<T>): Flow<ResultState<T>> {
+    suspend fun <T> apiCallFlow(block: suspend () -> BaseResponse<T>): Flow<ResultState<T>> {
         return flow<ResultState<T>> {
             val response = block()
             if (response.isSuccessful()) {
@@ -54,5 +55,22 @@ open class BaseViewModel : ViewModel() {
             }
     }
 
+    suspend fun <T> apiCall(block: suspend () -> BaseResponse<T>): ResultState<T> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = block()
+                if (response.isSuccessful()) {
+                    ResultState.Success(response.data!!)
+                } else {
+                    val serverException = ServerException(response.errorCode, response.errorMsg)
+                    val e = ExceptionHandler.handleException(serverException)
+                    ResultState.Error(e, e.errMsg)
+                }
+            } catch (e: Exception) {
+                val e = ExceptionHandler.handleException(e)
+                ResultState.Error(e, e.errMsg)
+            }
+        }
+    }
 
 }

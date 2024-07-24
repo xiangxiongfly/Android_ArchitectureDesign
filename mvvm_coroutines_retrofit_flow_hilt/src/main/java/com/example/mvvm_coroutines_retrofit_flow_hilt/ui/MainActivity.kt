@@ -15,6 +15,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initViews() {
+        mViewBinding.root.post {  }
+
     }
 
     override fun initData(savedInstanceState: Bundle?) {

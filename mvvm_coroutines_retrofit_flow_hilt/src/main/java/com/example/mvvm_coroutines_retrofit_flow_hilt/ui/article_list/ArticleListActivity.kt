@@ -34,34 +34,57 @@ class ArticleListActivity : BaseActivity<ActivityArticleListBinding>() {
         mViewBinding.btnGetArticleList.setOnClickListener {
             getArticleList()
         }
+        mViewBinding.btnGetArticleListFlow.setOnClickListener {
+            getArticleListFlow()
+        }
         observe()
     }
 
     private fun getArticleList() {
-        articleListViewModel.getArticleListCache()
         articleListViewModel.getArticleList()
+    }
+
+    private fun getArticleListFlow() {
+        articleListViewModel.getArticleListFlow()
     }
 
     private fun observe() {
         launchMain {
-            articleListViewModel.articleCacheFlow.collect {
-                it?.let {
-                    Log.e("TAG", "缓存")
-                    updateUI(it)
-                }
-            }
-        }
-        launchMain {
-            articleListViewModel.articleFlow.collect {
+            articleListViewModel.articleFlow1.collect {
                 when (it) {
                     is ResultState.Loading -> showLoading()
                     is ResultState.Error -> {
                         showToast(it.message)
                         hideLoading()
                     }
-                    is ResultState.Success -> {
+                    is ResultState.Success<ArrayList<ArticleBean>> -> {
                         hideLoading()
-                        Log.e("TAG", "网络")
+                        if (it.isCache) {
+                            Log.e("TAG", "来自缓存")
+                        } else {
+                            Log.e("TAG", "来自网络")
+                        }
+                        updateUI(it.data)
+                    }
+                    else -> {}
+                }
+            }
+        }
+        launchMain {
+            articleListViewModel.articleFlow2.collect {
+                when (it) {
+                    is ResultState.Loading -> showLoading()
+                    is ResultState.Error -> {
+                        showToast(it.message)
+                        hideLoading()
+                    }
+                    is ResultState.Success<ArrayList<ArticleBean>> -> {
+                        hideLoading()
+                        if (it.isCache) {
+                            Log.e("TAG", "来自缓存")
+                        } else {
+                            Log.e("TAG", "来自网络")
+                        }
                         updateUI(it.data)
                     }
                     else -> {}

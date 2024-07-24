@@ -5,9 +5,9 @@ import com.example.common.network.exceptions.ApiException
 /**
  * 状态类
  */
-sealed class ResultState<out R> {
+sealed class ResultState<out T> {
     // 成功状态
-    data class Success<out T>(val data: T) : ResultState<T>()
+    data class Success<out T>(val data: T, val isCache: Boolean = false) : ResultState<T>()
 
     // 失败状态
     data class Error(val exception: ApiException, val message: String) : ResultState<Nothing>()

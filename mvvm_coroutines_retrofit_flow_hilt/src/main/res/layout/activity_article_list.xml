@@ -13,6 +13,12 @@
         android:layout_height="wrap_content"
         android:text="请求数据" />
 
+    <Button
+        android:id="@+id/btn_get_article_list_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请求数据(Flow)" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_article_list"
         android:layout_width="match_parent"

@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(private val loginModel: LoginRepo) : Ba
 
     fun login(username: String, password: String) {
         launchMain {
-            apiCall { loginModel.login(username, password) }
+            apiCallFlow { loginModel.login(username, password) }
                 .onStart {
                     _userFlow.value = ResultState.Loading
                 }
