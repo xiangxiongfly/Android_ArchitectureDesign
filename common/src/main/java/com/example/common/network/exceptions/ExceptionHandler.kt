@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata.http.exceptions
+package com.example.mvvm_jetpack.http.exceptions
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.mvvm_coroutines_retrofit_flow_hilt.ui.login.LoginActivity" />
-        <activity android:name="com.example.mvvm_coroutines_retrofit_flow_hilt.ui.article_list.ArticleListActivity" />
+        <activity android:name="com.example.mvvm_coroutines_retrofit_flow_hilt.ui.articlelist.ArticleListActivity" />
     </application>
 
 </manifest>

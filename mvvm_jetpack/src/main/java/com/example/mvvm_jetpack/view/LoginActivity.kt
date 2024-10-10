@@ -9,9 +9,6 @@ import com.example.mvvm_jetpack.databinding.ActivityLoginBinding
 import com.example.mvvm_jetpack.entity.state.UiState
 import com.example.mvvm_jetpack.viewmodel.LoginViewModel
 
-/**
- * View层
- */
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private val viewModel: LoginViewModel by viewModels()
 

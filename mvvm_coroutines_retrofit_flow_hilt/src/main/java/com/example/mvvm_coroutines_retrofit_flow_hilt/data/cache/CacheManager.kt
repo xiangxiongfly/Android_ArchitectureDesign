@@ -1,7 +1,7 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.data.cache
 
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.AppDatabase
-import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.CacheDao
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.dao.CacheDao
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.entity.CacheEntity
 import com.google.gson.reflect.TypeToken
 import com.hjq.gson.factory.GsonFactory

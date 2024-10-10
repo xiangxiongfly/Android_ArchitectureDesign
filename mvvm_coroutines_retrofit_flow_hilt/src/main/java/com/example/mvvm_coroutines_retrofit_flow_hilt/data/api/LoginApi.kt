@@ -1,6 +1,6 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.data.api
 
-import com.example.mvvm_coroutines_retrofit_flow_hilt.data.bean.BaseResponse
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.bean.BeanFactory
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.bean.UserBean
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -12,5 +12,5 @@ interface LoginApi {
     suspend fun login(
         @Field("username") username: String,
         @Field("password") password: String
-    ): BaseResponse<UserBean>
+    ): BeanFactory<UserBean>
 }

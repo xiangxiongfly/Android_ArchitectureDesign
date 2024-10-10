@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.dao.CacheDao
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.entity.CacheEntity
 
 const val VERSION = 1

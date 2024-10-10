@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata.http.exceptions
+package com.example.mvvm_jetpack.http.exceptions
 
 /**
  * 服务端返回错误码

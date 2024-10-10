@@ -9,9 +9,6 @@ import com.example.mvvm_jetpack.repository.api.LoginApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-/**
- * Model层
- */
 object LoginRemoteDataSource {
     private val loginApi: LoginApi by lazy {
         HttpManager.create(LoginApi::class.java)

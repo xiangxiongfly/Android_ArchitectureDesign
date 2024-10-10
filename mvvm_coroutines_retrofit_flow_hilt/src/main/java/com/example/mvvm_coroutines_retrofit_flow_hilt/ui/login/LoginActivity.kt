@@ -9,7 +9,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.common.base.BaseActivity
 import com.example.common.utils.showToast
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.bean.UserBean
-import com.example.mvvm_coroutines_retrofit_flow_hilt.data.state.ResultState
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.state.UiState
 import com.example.mvvm_coroutines_retrofit_flow_hilt.databinding.ActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -56,12 +56,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.userFlow.collect {
                     when (it) {
-                        is ResultState.Loading -> showLoadingDialog()
-                        is ResultState.Success<UserBean> -> {
+                        is UiState.Loading -> showLoadingDialog()
+                        is UiState.Success<UserBean> -> {
                             mViewBinding.tvDesc.text = it.toString()
                             hideLoadingDialog()
                         }
-                        is ResultState.Error -> {
+                        is UiState.Error -> {
                             mViewBinding.tvDesc.text = it.message
                             hideLoadingDialog()
                         }

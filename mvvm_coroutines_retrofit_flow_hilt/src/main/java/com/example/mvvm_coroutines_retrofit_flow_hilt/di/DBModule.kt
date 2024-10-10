@@ -2,7 +2,7 @@ package com.example.mvvm_coroutines_retrofit_flow_hilt.di
 
 import com.example.mvvm_coroutines_retrofit_flow_hilt.base.HiltApplication
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.AppDatabase
-import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.CacheDao
+import com.example.mvvm_coroutines_retrofit_flow_hilt.data.db.dao.CacheDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
