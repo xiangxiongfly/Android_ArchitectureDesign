@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata
+package com.example.mvvm_jetpack
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

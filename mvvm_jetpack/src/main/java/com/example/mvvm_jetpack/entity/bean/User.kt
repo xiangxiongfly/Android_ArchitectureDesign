@@ -1,4 +1,4 @@
-package com.example.mvvm_coroutines_retrofit_livedata.entity.bean
+package com.example.mvvm_jetpack.entity.bean
 
 data class User(
     var admin: Boolean = false,

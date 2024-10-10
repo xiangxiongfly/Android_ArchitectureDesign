@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.mvvm_coroutines_retrofit_livedata'
+    namespace 'com.example.mvvm_jetpack'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.mvvm_coroutines_retrofit_livedata"
+        applicationId "com.example.mvvm_jetpack"
         minSdk 22
         targetSdk 33
         versionCode 1

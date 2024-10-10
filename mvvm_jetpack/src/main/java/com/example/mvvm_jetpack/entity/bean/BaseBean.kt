@@ -1,6 +1,6 @@
-package com.example.mvvm_coroutines_retrofit_livedata.entity.bean
+package com.example.mvvm_jetpack.entity.bean
 
-data class BaseResponse<T>(
+data class BaseBean<T>(
     val errorCode: Int = 0,
     var errorMsg: String = "",
     val data: T? = null

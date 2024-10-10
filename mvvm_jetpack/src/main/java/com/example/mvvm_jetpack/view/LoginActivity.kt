@@ -1,13 +1,13 @@
-package com.example.mvvm_coroutines_retrofit_livedata.view
+package com.example.mvvm_jetpack.view
 
 import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.example.common.base.BaseActivity
 import com.example.common.utils.showToast
-import com.example.mvvm_coroutines_retrofit_livedata.base.BaseActivity
-import com.example.mvvm_coroutines_retrofit_livedata.databinding.ActivityLoginBinding
-import com.example.mvvm_coroutines_retrofit_livedata.entity.state.ResultState
-import com.example.mvvm_coroutines_retrofit_livedata.viewmodel.LoginViewModel
+import com.example.mvvm_jetpack.databinding.ActivityLoginBinding
+import com.example.mvvm_jetpack.entity.state.UiState
+import com.example.mvvm_jetpack.viewmodel.LoginViewModel
 
 /**
  * View层
@@ -48,14 +48,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     private fun observe() {
         viewModel.loginLiveData.observe(this) {
             when (it) {
-                is ResultState.Loading -> {
+                is UiState.Loading -> {
                     showLoadingDialog()
                 }
-                is ResultState.Error -> {
+                is UiState.Error -> {
                     hideLoadingDialog()
-                    mViewBinding.tvDesc.text = it.message
+                    mViewBinding.tvDesc.text = it.errMsg
                 }
-                is ResultState.Success<*> -> {
+                is UiState.Success<*> -> {
                     hideLoadingDialog()
                     mViewBinding.tvDesc.text = it.data.toString()
                 }
