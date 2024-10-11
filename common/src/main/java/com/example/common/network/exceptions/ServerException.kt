@@ -1,4 +1,4 @@
-package com.example.mvvm_jetpack.http.exceptions
+package com.example.common.network.exceptions
 
 /**
  * 服务端返回错误码

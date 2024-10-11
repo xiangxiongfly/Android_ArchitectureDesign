@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.mvvm_jetpack'
+    namespace 'com.example.mvvm_clean'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.mvvm_jetpack"
+        applicationId "com.example.mvvm_clean"
         minSdk 22
         targetSdk 33
         versionCode 1

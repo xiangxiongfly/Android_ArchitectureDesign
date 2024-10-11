@@ -13,9 +13,6 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -60,10 +57,6 @@ dependencies {
     // GSON
     api 'com.google.code.gson:gson:2.10.1'
     api 'com.github.getActivity:GsonFactory:9.3'
-
-    testApi 'junit:junit:'
-    androidTestApi 'androidx.test.ext:junit:1.1.5'
-    androidTestApi 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
 kapt {
