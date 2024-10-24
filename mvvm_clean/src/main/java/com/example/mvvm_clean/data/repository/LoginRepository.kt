@@ -10,11 +10,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class LoginRepository(private val remoteData: LoginRemoteDataSource = LoginRemoteDataSource) {
-
+class LoginRepository(private val loginRemote: LoginRemoteDataSource = LoginRemoteDataSource) {
     suspend fun login(username: String, password: String): Flow<UiState<User>> {
         return flow<UiState<User>> {
-            val userResponse = remoteData.login(username, password)
+            val userResponse = loginRemote.login(username, password)
             if (userResponse.isSuccessful()) {
                 emit(UiState.Success(userResponse.data!!))
             } else {
