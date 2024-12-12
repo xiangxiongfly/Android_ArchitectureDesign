@@ -1,4 +1,4 @@
-package com.example.common.network
+package com.example.common.http
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

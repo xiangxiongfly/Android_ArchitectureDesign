@@ -1,6 +1,6 @@
 package com.example.mvvm_clean.data.entity.state
 
-import com.example.common.network.exceptions.ApiException
+import com.example.common.http.exceptions.HttpException
 
 /**
  * UI状态类
@@ -10,7 +10,7 @@ sealed class UiState<out R> {
     data class Success<out T>(val data: T) : UiState<T>()
 
     // 失败状态
-    data class Error(val exception: ApiException, val message: String) : UiState<Nothing>()
+    data class Error(val exception: HttpException, val message: String) : UiState<Nothing>()
 
     // 加载状态
     object Loading : UiState<Nothing>()

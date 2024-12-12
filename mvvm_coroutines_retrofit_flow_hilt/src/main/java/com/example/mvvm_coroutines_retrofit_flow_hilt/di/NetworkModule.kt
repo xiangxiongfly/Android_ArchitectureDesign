@@ -1,6 +1,6 @@
 package com.example.mvvm_coroutines_retrofit_flow_hilt.di
 
-import com.example.common.network.HttpManager
+import com.example.common.http.HttpManager
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.api.ArticleApi
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.api.LoginApi
 import dagger.Module

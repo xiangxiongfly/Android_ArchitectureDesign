@@ -2,8 +2,8 @@ package com.example.mvvm_coroutines_retrofit_flow_hilt.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.common.network.exceptions.ExceptionHandler
-import com.example.common.network.exceptions.ServerException
+import com.example.common.http.exceptions.ExceptionHandler
+import com.example.common.http.exceptions.ServerException
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.bean.BeanFactory
 import com.example.mvvm_coroutines_retrofit_flow_hilt.data.state.UiState
 import kotlinx.coroutines.CoroutineScope
