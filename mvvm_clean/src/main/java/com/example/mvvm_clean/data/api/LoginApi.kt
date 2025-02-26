@@ -1,7 +1,7 @@
 package com.example.mvvm_clean.data.api
 
-import com.example.mvvm_clean.data.entity.bean.BaseBean
-import com.example.mvvm_clean.data.entity.bean.User
+import com.example.mvvm_clean.data.model.bean.BaseBean
+import com.example.mvvm_clean.data.model.bean.User
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

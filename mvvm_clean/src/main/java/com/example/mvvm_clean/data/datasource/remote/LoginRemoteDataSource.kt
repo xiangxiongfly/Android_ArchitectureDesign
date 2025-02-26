@@ -2,8 +2,8 @@ package com.example.mvvm_clean.data.datasource.remote
 
 import com.example.common.http.HttpManager
 import com.example.mvvm_clean.data.api.LoginApi
-import com.example.mvvm_clean.data.entity.bean.BaseBean
-import com.example.mvvm_clean.data.entity.bean.User
+import com.example.mvvm_clean.data.model.bean.BaseBean
+import com.example.mvvm_clean.data.model.bean.User
 
 object LoginRemoteDataSource {
 
