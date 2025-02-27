@@ -8,9 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.common.base.BaseActivity
 import com.example.common.utils.showToast
-import com.example.mvvm_clean.databinding.ActivityLoginBinding
 import com.example.mvvm_clean.data.model.bean.User
-import com.example.mvvm_clean.data.model.state.UiState
+import com.example.mvvm_clean.databinding.ActivityLoginBinding
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
@@ -43,23 +42,23 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        observe()
+        observeLogin()
     }
 
-    private fun observe() {
+    private fun observeLogin() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.RESUMED) {
                 viewModel.loginFlow.collect {
                     when (it) {
                         is UiState.Loading -> showLoading()
-
                         is UiState.Success<User> -> {
                             mViewBinding.tvDesc.text = it.toString()
                             hideLoading()
                         }
 
                         is UiState.Error -> {
-                            mViewBinding.tvDesc.text = it.message
+                            mViewBinding.tvDesc.text = it.errMsg
+                            showToast(it.errMsg)
                             hideLoading()
                         }
 

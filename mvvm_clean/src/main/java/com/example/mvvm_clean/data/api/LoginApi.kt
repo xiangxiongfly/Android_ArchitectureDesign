@@ -1,6 +1,6 @@
 package com.example.mvvm_clean.data.api
 
-import com.example.mvvm_clean.data.model.bean.BaseBean
+import com.example.mvvm_clean.data.model.bean.BeanFactory
 import com.example.mvvm_clean.data.model.bean.User
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -12,5 +12,5 @@ interface LoginApi {
     suspend fun login(
         @Field("username") username: String,
         @Field("password") password: String
-    ): BaseBean<User>
+    ): BeanFactory<User>
 }
