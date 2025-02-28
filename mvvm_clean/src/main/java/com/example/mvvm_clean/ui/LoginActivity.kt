@@ -36,7 +36,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 showToast("请输入密码")
                 return@setOnClickListener
             }
-
             viewModel.login(username, password)
         }
     }
