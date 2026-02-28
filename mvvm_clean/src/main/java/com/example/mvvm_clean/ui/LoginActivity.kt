@@ -10,6 +10,7 @@ import com.example.common.base.BaseActivity
 import com.example.common.utils.showToast
 import com.example.mvvm_clean.data.model.bean.User
 import com.example.mvvm_clean.databinding.ActivityLoginBinding
+import com.example.mvvm_clean.ui.state.UiState
 import kotlinx.coroutines.launch
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {

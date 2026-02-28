@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvm_clean.data.model.bean.User
 import com.example.mvvm_clean.data.model.state.ResultState
-import com.example.mvvm_clean.data.repository.LoginRepositoryImpl
 import com.example.mvvm_clean.domain.usercase.LoginUseCase
+import com.example.mvvm_clean.ui.state.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
