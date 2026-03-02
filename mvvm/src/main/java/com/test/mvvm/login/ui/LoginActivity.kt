@@ -6,9 +6,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.common.utils.showToast
 import com.test.mvvm.common.loading.LoadingDialog
+import com.test.mvvm.common.model.state.UiState
 import com.test.mvvm.databinding.ActivityLoginBinding
 import com.test.mvvm.login.data.LoginRepo
-import com.test.mvvm.login.data.state.UiState
 import com.test.mvvm.login.viewmodel.LoginViewModel
 import com.test.mvvm.login.viewmodel.LoginViewModelFactory
 
@@ -39,13 +39,13 @@ class LoginActivity : AppCompatActivity() {
 
                 is UiState.Success -> {
                     hideLoading()
-                    showToast("请求成功")
+                    showToast(it.data.toString())
                     binding.tvResult.text = it.data.toString()
                 }
 
                 is UiState.Error -> {
                     hideLoading()
-                    showToast("请求失败")
+                    showToast(it.errMsg)
                     binding.tvResult.text = it.errMsg
                 }
 

@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.common.utils.showToast
 import com.test.mvvm.common.loading.LoadingDialog
+import com.test.mvvm.common.model.state.ListState
 import com.test.mvvm.databinding.ActivityListBinding
 import com.test.mvvm.list.data.ListRepo
-import com.test.mvvm.list.data.state.ListState
 import com.test.mvvm.list.viewmodel.ListViewModel
 import com.test.mvvm.list.viewmodel.ListViewModelFactory
 
@@ -20,14 +20,13 @@ class ListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityListBinding
     private lateinit var adapter: ListAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initRv()
-        loadList()
         setupObserves()
+        viewModel.loadList()
     }
 
     private fun initRv() {
@@ -40,18 +39,6 @@ class ListActivity : AppCompatActivity() {
         binding.refreshLayout.setOnLoadMoreListener {
             viewModel.loadMoreList()
         }
-    }
-
-    private fun loadList() {
-        viewModel.loadList()
-    }
-
-    private fun refreshList() {
-        viewModel.refreshList()
-    }
-
-    private fun loadMoreList() {
-        viewModel.loadMoreList()
     }
 
     private fun setupObserves() {

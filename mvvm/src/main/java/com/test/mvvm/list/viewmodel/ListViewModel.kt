@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.test.mvvm.common.model.state.ListState
+import com.test.mvvm.common.model.state.ResultState
 import com.test.mvvm.list.data.ListRepo
 import com.test.mvvm.list.data.model.Article
-import com.test.mvvm.list.data.state.ListState
 import kotlinx.coroutines.launch
 
 class ListViewModel(private val repo: ListRepo) : ViewModel() {
@@ -24,16 +25,19 @@ class ListViewModel(private val repo: ListRepo) : ViewModel() {
         }
         _listState.value = ListState.Loading
         viewModelScope.launch {
-            repo.getArticles(currentPage)
-                .onSuccess {
-                    val items = it.list
+            val result = repo.getArticles(currentPage)
+            when (result) {
+                is ResultState.Success -> {
+                    val items = result.data.list
                     allItems.addAll(items)
                     _listState.value = ListState.Success(items)
                     currentPage++
                 }
-                .onFailure {
-                    _listState.value = ListState.Error(it.message ?: "加载失败")
+
+                is ResultState.Error -> {
+                    _listState.value = ListState.Error(result.errMsg)
                 }
+            }
         }
     }
 
@@ -49,16 +53,19 @@ class ListViewModel(private val repo: ListRepo) : ViewModel() {
         viewModelScope.launch {
             currentPage = 1
             allItems.clear()
-            repo.getArticles(currentPage)
-                .onSuccess {
-                    val items = it.list
+            val result = repo.getArticles(currentPage)
+            when (result) {
+                is ResultState.Success -> {
+                    val items = result.data.list
                     allItems.addAll(items)
                     _listState.value = ListState.RefreshSuccess(allItems)
                     currentPage++
                 }
-                .onFailure {
-                    _listState.value = ListState.Error(it.message ?: "刷新失败")
+
+                is ResultState.Error -> {
+                    _listState.value = ListState.Error(result.errMsg)
                 }
+            }
         }
     }
 
@@ -72,16 +79,19 @@ class ListViewModel(private val repo: ListRepo) : ViewModel() {
 
         _listState.value = ListState.LoadingMore
         viewModelScope.launch {
-            repo.getArticles(currentPage)
-                .onSuccess {
-                    val items = it.list
+            val result = repo.getArticles(currentPage)
+            when (result) {
+                is ResultState.Success -> {
+                    val items = result.data.list
                     allItems.addAll(items)
                     _listState.value = ListState.LoadMoreSuccess(items)
                     currentPage++
                 }
-                .onFailure {
-                    _listState.value = ListState.Error(it.message ?: "加载更多失败")
+
+                is ResultState.Error -> {
+                    _listState.value = ListState.Error(result.errMsg)
                 }
+            }
         }
     }
 }
