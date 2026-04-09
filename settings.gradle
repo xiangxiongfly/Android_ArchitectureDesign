@@ -15,11 +15,11 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Android_ArchitectureDesign"
-//include ':common'
-//include ':mvc'
-//include ':mvp'
-//include ':mvp_rxjava_retrofit'
-//include ':mvvm'
-//include ':mvvm_jetpack'
-//include ':mvvm_clean'
+include ':common'
+include ':mvc'
+include ':mvp'
+include ':mvp_rxjava_retrofit'
+include ':mvvm'
+include ':mvvm_jetpack'
+include ':mvvm_clean'
 include ':mvi'
