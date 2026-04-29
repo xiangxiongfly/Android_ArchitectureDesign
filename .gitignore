@@ -1,15 +1,59 @@
+# -----------------------------------------
+# Android 自动生成文件
+# -----------------------------------------
 *.iml
 .gradle
-/local.properties
+/captures
+/build
+!.gradle/configuration-cache
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+*.aab
+*.ids
+*.so
+
+# -----------------------------------------
+# 本地配置
+# -----------------------------------------
+local.properties
+*.local
+keystore/
+*.jks
+*.keystore
+signing.properties
+
+# -----------------------------------------
+# IDE 配置（Android Studio / IDEA）
+# -----------------------------------------
+.idea/
+!.idea/scopes/
+!.idea/codeStyles/
+!.idea/dictionaries/
+!.idea/copyright/
+!.idea/runConfigurations/
+
+# 你原来的可以删掉，用上面一句 .idea/ 全覆盖
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
-/.idea/workspace.xml
+/.idea/workspace
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+misc.xml
+
+# -----------------------------------------
+# 系统文件
+# -----------------------------------------
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+Thumbs.db
+*.log
+
+# -----------------------------------------
+# 编译/测试缓存
+# -----------------------------------------
+/output.json
+/release
+/debug
+*.hprof
